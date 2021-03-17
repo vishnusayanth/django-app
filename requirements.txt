@@ -1,0 +1,10 @@
+social-auth-app-django
+requests
+bs4
+pandas
+xlrd
+openpyxl
+html5lib
+djangorestframework
+django
+django-cors-headers

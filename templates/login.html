@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block content %}
+        <div style="height: 100px;"></div>
+    <center>
+        <div class="shadow-lg p-3 mb-5 rounded" style="width:70%;">
+            <div>
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="username" class="form-control col-md-6" placeholder="Enter your username"
+                           required/>
+                    <br/>
+                    <input type="password" name="password" class="form-control col-md-6"
+                           placeholder="Enter your password"
+                           required/>
+                    <br/>
+                    <button class="btn btn-outline-dark" type="submit">Login</button>
+                </form>
+                <hr/>
+                <div class="row justify-content-around">
+                    <a href="{% url 'social:begin' 'github' %}" title="Signup with your GitHub account" class="github">
+                        <i class="bx bxl-github" style="transform: scale(3);color: black;"></i>
+                    </a>
+                    <a href="{% url 'social:begin' 'linkedin-oauth2' %}" title="Signup with your Linkedin account" class="linkedin">
+                        <i class="bx bxl-linkedin" style="transform: scale(3);color: blue;"></i>
+                    </a>
+                </div>
+                <br/>
+            </div>
+            <div class="card-footer text-center">
+                <div class="small"><a href="{% url 'home' %}#register">Need an account? Sign up!</a>
+                </div>
+            </div>
+        </div>
+    </center>
+{% endblock %}
