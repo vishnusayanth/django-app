@@ -20,6 +20,9 @@ class Country(models.Model):
     def __str__(self):
         return self.name
     
+    def continent_name(self):
+        return self.continent.name
+    
     def capital(self):
         return str(State.objects.filter(Q(country=self) & Q(capital_state=True)).first())
 
