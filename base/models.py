@@ -25,7 +25,7 @@ class UserManager(BaseUserManager):
 
 
 class Developer(AbstractBaseUser, PermissionsMixin):
-    """Custom user model that supports using email instead of username"""
+    """Custom user model"""
     username = models.CharField(max_length=20, default=None, unique=True)
     email = models.EmailField(default=None, null=True, blank=True)
     url = models.CharField(max_length=200, default=None, null=True, blank=True)
