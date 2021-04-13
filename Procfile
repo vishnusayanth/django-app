@@ -1,1 +1,1 @@
-web: gunicorn vishnusayanth.wsgi
+web: gunicorn django_app.wsgi

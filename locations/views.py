@@ -10,7 +10,7 @@ from django.views.generic.list import ListView
 
 from locations.models import Country, State, Continent
 from utils.utility_classes import NirvanaLogger
-from vishnusayanth import settings
+from django_app import settings
 
 logger = NirvanaLogger(__name__)
 
