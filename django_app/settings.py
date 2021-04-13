@@ -42,6 +42,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'utils.utility_functions.CustomRequestMiddleware'
 ]
@@ -75,7 +76,7 @@ REST_FRAMEWORK = {
 
 WSGI_APPLICATION = 'django_app.wsgi.application'
 
-DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 if not DEPLOYED:
     DATABASES = {
         'default': {
@@ -159,6 +160,16 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, "static"),
-   ]
+if DEPLOYED:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_URL = '/static/'
+
+    # Extra places for collectstatic to find static files.
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+    )
+else:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "static"),
+    ]
