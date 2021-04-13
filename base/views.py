@@ -11,6 +11,7 @@ from base.models import Developer
 from locations.models import Country, Continent, State
 from utils import utility_functions, global_variables
 from utils.utility_classes import NirvanaLogger
+from django.contrib.sessions.models import Session
 
 logger = NirvanaLogger(__name__)
 
@@ -18,6 +19,10 @@ logger = NirvanaLogger(__name__)
 def contact(request):
     try:
         if request.method == 'POST':
+            # Method to truncate session table to control the row count limit on Heroku.
+            if request.user.is_superuser and 'clear_session' in request.POST:
+                Session.objects.all().delete()
+            # ---------------------------------------------------------------------->>>>
             data = request.POST
             location = 'Send via portfolio'
             if 'location' in data:
@@ -108,14 +113,13 @@ def resetpassword(request):
         return redirect('error')
 
 
-def home(request, message=None):
+def home(request):
     try:
         data = {
             'title': 'Home',
             'countries_len': len(Country.objects.all()),
             'continents_len': len(Continent.objects.all()),
             'states_len': len(State.objects.all()),
-            'message': message
         }
         return render(request, 'home.html', data)
     except Exception as ex:

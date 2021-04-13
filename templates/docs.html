@@ -69,55 +69,55 @@
                                           class="badge badge-secondary popover-btn"
                                           data-container="body" data-title="Continents"
                                           data-toggle="popover" data-placement="bottom"
-                                          data-content='{"continents": [{"id": 22,"name": "Asia"},{"id": 23,"name": "Africa"},'>
+                                          data-content=' {"continents": [{"id": 22,"name": "Asia"},{"id": 23,"name": "Africa"},]} '>
                                         Sample response
                                     </span>
                                 </strong>
-                                <p><var>https://vishnusayanth.pythonanywhere.com/api/continents/</var></p>
+                                <p><var>https://vishnusayanth-django-app.herokuapp.com/api/continents/</var></p>
                                 <strong>
                                     Get the list of all countries
                                     <span style="cursor: pointer"
                                           class="badge badge-secondary popover-btn" data-trigger="hover"
                                           data-container="body" data-title="Countries"
                                           data-toggle="popover" data-placement="bottom"
-                                          data-content='{"countries": [{"id": 403,"name": "Afghanistan","official_language": "Pashto","country_code": 93,"iso_code": "AF / AFG","continent_name": "Asia","capital": "Kabul"},"id": 404,"name":"Albania","official_language": "Albanian","country_code": 355,"iso_code": "AL / ALB","continent_name": "Europe","capital": "Tirana District"},]}'>
+                                          data-content=' {"countries": [{"id": 403,"name": "Afghanistan","official_language": "Pashto","country_code": 93,"iso_code": "AF / AFG","continent_name": "Asia","capital": "Kabul"},"id": 404,"name":"Albania","official_language": "Albanian","country_code": 355,"iso_code": "AL / ALB","continent_name": "Europe","capital": "Tirana District"},]} '>
                                         Sample response
                                     </span>
                                 </strong>
-                                <p><var>https://vishnusayanth.pythonanywhere.com/api/countries/</var></p>
+                                <p><var>https://vishnusayanth-django-app.herokuapp.com/api/countries/</var></p>
                                 <strong>
                                     Get the list of states in country with id <strong>1</strong>
                                     <span style="cursor: pointer"
                                           class="badge badge-secondary popover-btn" data-trigger="hover"
                                           data-container="body" data-title="States"
                                           data-toggle="popover" data-placement="bottom"
-                                          data-content='{"country": "Afghanistan","states": [{"name": "Badakhshan"},{"name": "Badghis"},{"name": "Baghlan"},]}'>
+                                          data-content=' {"country": "Afghanistan","states": [{"name": "Badakhshan"},{"name": "Badghis"},{"name": "Baghlan"},]} '>
                                         Sample response
                                     </span>
                                 </strong>
-                                <p><var>https://vishnusayanth.pythonanywhere.com/api/states/1</var></p>
+                                <p><var>https://vishnusayanth-django-app.herokuapp.com/api/states/1</var></p>
                                 <strong>
                                     Get the list of countries in continent with id <strong>1</strong>
                                     <span style="cursor: pointer"
                                           class="badge badge-secondary popover-btn" data-trigger="hover"
                                           data-container="body" data-title="Countries in Continent"
                                           data-toggle="popover" data-placement="bottom"
-                                          data-content='{"continent": "Asia","countries": [{"name": "Afghanistan"},{"name": "Armenia"},{"name": "Bahamas"},{"name": "Bahrain"},]}'>
+                                          data-content=' {"continent": "Asia","countries": [{"name": "Afghanistan"},{"name": "Armenia"},{"name": "Bahamas"},{"name": "Bahrain"},]} '>
                                         Sample response
                                     </span>
                                 </strong>
-                                <p><var>https://vishnusayanth.pythonanywhere.com/api/countries_in_continent/1</var></p>
+                                <p><var>https://vishnusayanth-django-app.herokuapp.com/api/countries_in_continent/1</var></p>
                                 <strong>
                                     Get the capital of country with id <strong>1</strong>
                                     <span style="cursor: pointer"
                                           class="badge badge-secondary popover-btn" data-trigger="hover"
                                           data-container="body" data-title="Capital"
                                           data-toggle="popover" data-placement="bottom"
-                                          data-content='"country": "Afghanistan","capital": "Kabul"'>
+                                          data-content=' {"country": "Afghanistan","capital": "Kabul"} '>
                                         Sample response
                                     </span>
                                 </strong>
-                                <p><var>https://vishnusayanth.pythonanywhere.com/api/capital/1</var></p>
+                                <p><var>https://vishnusayanth-django-app.herokuapp.com/api/capital/1</var></p>
                                 <section class="faq" style="width: 100%;">
                                     <div data-aos="fade-up">
                                         <div class="faq-list">
@@ -135,7 +135,7 @@
                                                             <br/>
                                                             <br/>
                                                             <code>url =
-                                                                'https://vishnusayanth.pythonanywhere.com/api/continents/'</code>
+                                                                'https://vishnusayanth-django-app.herokuapp.com/api/continents/'</code>
                                                             <br/>
                                                             <code>headers = {'Authorization':'Token &lt;your_api_token_here&gt;'}</code>
                                                             <br/>
@@ -166,7 +166,7 @@
                                                             </code><br/>
                                                             <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&gt;</code><br/>
                                                             <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let url =
-                                                                'https://vishnusayanth.pythonanywhere.com/api/countries/';</code><br/>
+                                                                'https://vishnusayanth-django-app.herokuapp.com/api/countries/';</code><br/>
                                                             <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let headers =
                                                                 {'Authorization': 'Token
                                                                 &lt;your_api_token_here&gt;'};</code><br/>
@@ -225,7 +225,7 @@
                                 <p class="text-muted">Check out what's possible on this application.</p>
                                 <hr>
                                 <p class="text-justify">This is a hobby project developed by Vishnu Sayanth, deployed on
-                                    PythonAnywhere platform. This application has a public API that can be used to get
+                                    Heroku platform. This application has a public API that can be used to get
                                     data on
                                     geographic locations like countries,continents & states etc.
                                     Below given are the things possible on this applciation.
@@ -280,7 +280,7 @@
                                     <strong>Google News</strong> is also utilised in this application.
                                     <br/>
                                     The application is versioned and deployed using the continuous deployment provided
-                                    by <strong>PythonAnywhere & GitHub</strong>.
+                                    by <strong>Heroku & GitHub</strong>.
                                     The source code of this application can be found <a target="_blank"
                                                                                         href="https://www.github.com/vishnusayanth/django-app"
                                                                                         class="text-decoration-none text-success">here.</a>
@@ -303,7 +303,7 @@
                                 <div class="row">
                                     <div class="col-sm"><img src="{% static 'technology/python.png' %}"
                                                              class="img-fluid"/></div>
-                                    <div class="col-sm"><img src="{% static 'technology/pythonanywhere.png' %}"
+                                    <div class="col-sm"><img src="{% static 'technology/heroku.png' %}"
                                                              class="img-fluid"/></div>
                                     <div class="col-sm"><img src="{% static 'technology/spotify.png' %}"
                                                              class="img-fluid"/></div>
@@ -313,7 +313,7 @@
                                     </div>
                                     <div class="col-sm"><img src="{% static 'technology/bootstrap.png' %}"
                                                              class="img-fluid"/></div>
-                                    <div class="col-sm"><img src="{% static 'technology/mysql.png' %}"
+                                    <div class="col-sm"><img src="{% static 'technology/postgres.png' %}"
                                                              class="img-fluid"/></div>
                                 </div>
                             </div>

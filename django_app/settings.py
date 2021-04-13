@@ -5,13 +5,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # 2 Flags are used to enable DEBUG in production.
-DEBUG = False
-DEPLOYED = False
+DEBUG = True
+DEPLOYED = True
 CSRF_TRUSTED_ORIGINS = ['https://django_app.github.io/']
 if DEPLOYED:
     ALLOWED_HOSTS = ['*', 'https://django_app.github.io/']
 else:
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = []
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -75,6 +75,7 @@ REST_FRAMEWORK = {
 
 WSGI_APPLICATION = 'django_app.wsgi.application'
 
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 if not DEPLOYED:
     DATABASES = {
         'default': {
@@ -85,7 +86,7 @@ if not DEPLOYED:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
+            'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.environ['DB_NAME'],
             'USER': os.environ['DB_USER'],
             'PASSWORD': os.environ['DB_PASSWORD'],
@@ -158,7 +159,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'root')
 STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static'),
-]
+   os.path.join(BASE_DIR, "static"),
+   ]

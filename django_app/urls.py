@@ -4,7 +4,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 from django_app import settings
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
                   path('', include('base.urls')),
@@ -14,9 +13,5 @@ urlpatterns = [
                   path('spotify/', include('spotify.urls')),
                   path('administrator_panel/', admin.site.urls),
                   path('oauth/', include('social_django.urls', namespace='social')),
-    ]+ staticfiles_urlpatterns()
-
-
-
-    #           ] + static(django_settings.STATIC_URL, document_root=django_settings.STATIC_ROOT) + static(
-    # django_settings.MEDIA_URL, document_root=django_settings.MEDIA_ROOT)
+    ]+ static(settings.STATIC_URL, document_root=django_settings.STATIC_ROOT) \
+              + static(django_settings.MEDIA_URL, document_root=django_settings.MEDIA_ROOT)
