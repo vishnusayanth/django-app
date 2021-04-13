@@ -11,4 +11,4 @@ djangorestframework
 django
 django-cors-headers
 psycopg2
-whitenoise==3.0
+whitenoise==5.0
