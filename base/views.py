@@ -19,19 +19,23 @@ logger = NirvanaLogger(__name__)
 def contact(request):
     try:
         if request.method == 'POST':
+            message = None
             # Method to truncate session table to control the row count limit on Heroku.
             if request.user.is_superuser and 'clear_session' in request.POST:
                 Session.objects.all().delete()
+                message = "Session cleared!"
             # ---------------------------------------------------------------------->>>>
-            data = request.POST
-            location = 'Send via portfolio'
-            if 'location' in data:
-                location = data['location']
-            message_string = utility_functions.get_email_string(data['name'], data['email'],
-                                                                data['subject'], location,
-                                                                data['message'])
-            utility_functions.send_email(strip_tags(message_string))
-            return JsonResponse({'data': 'Message sent successfully!'})
+            else:
+                data = request.POST
+                location = 'Send via portfolio'
+                if 'location' in data:
+                    location = data['location']
+                message_string = utility_functions.get_email_string(data['name'], data['email'],
+                                                                    data['subject'], location,
+                                                                    data['message'])
+                utility_functions.send_email(strip_tags(message_string))
+                message = 'Message sent successfully!'
+            return JsonResponse({'data': message})
     except Exception as ex:
         logger.write_to_console(str(ex), 'contact function')
         return JsonResponse({'data': 'Oh oh! Something went wrong!'})
