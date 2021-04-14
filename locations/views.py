@@ -104,7 +104,7 @@ def import_data_to_database(request):
                         stripped_continent = str(row['Continent']).strip().title()
                         if Continent.objects.filter(name=stripped_continent).exists():
                             continent = (Continent.objects.get(name=stripped_continent)).id
-                            name = str(row['Name']).title()
+                            name = str(row['Name']).title().strip()
                             if not Country.objects.filter(Q(name=name) & Q(continent_id=continent)).exists():
                                 obj = Country(name=name,
                                               official_language=row['Official_Language'],
