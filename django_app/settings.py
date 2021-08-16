@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # 2 Flags are used to enable DEBUG in production.
-DEBUG = True
+DEBUG = False
 DEPLOYED = True
 CSRF_TRUSTED_ORIGINS = ['https://django_app.github.io/']
 if DEPLOYED:
